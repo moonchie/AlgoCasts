@@ -100,3 +100,81 @@ console.log(anagrams('Hi there', 'Bye there'));
 console.log(anagram('RAIL! SAFETY!', 'fairy tales'));
 console.log(anagram('Hi there', 'Bye there'));
 module.exports = anagrams;
+
+
+//Kata: 6, Multiples of 3 or 5
+function solution(number){
+    // get all the number and put into an array
+    // get the numbers that are multiples of 3 or 5
+    // multiple everything
+    if (number < 0) { return 0};
+    if (number != 0){
+        const arr = [];
+    for (let i = 1; i < number; i++){
+        if ( i % 3 === 0 || i % 5 === 0){
+            arr.push(i)
+        }
+    }
+    return arr.reduce(function( x, y) { return x + y},0)
+    } else {
+        return number
+    }
+}
+
+// Best practice
+function solution(number){
+    var sum = 0;
+
+    for(var i = 1;i< number; i++){
+      if(i % 3 == 0 || i % 5 == 0){
+        sum += i
+      }
+    }
+    return sum;
+  }
+
+
+console.log(solution(10));
+console.log(solution(23));
+console.log(solution(0));
+console.log(solution(-5));
+
+
+//kata: 7, Highest and Lowest
+function highAndLow(numbers){
+    const arr = [];
+    for ( let x of numbers.split(' ') ){
+        arr.push(parseInt(x))}
+    return [Math.max(...arr), Math.min(...arr)].join(' ')
+}
+
+console.log(highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6"));
+console.log(highAndLow("1 9 3 4 -5"));
+
+//kata: 6, Duplicate Encoder
+// my solution:
+function duplicateEncode(word){
+    const charMap = {};
+    const result = [];
+    for ( let char of word.toLowerCase()){
+        charMap[char] = charMap[char] + 1 || 1;}
+
+    for ( let x of word.toLowerCase().split('')) {
+        charMap[x] === 1? result.push("(") : result.push(")")}
+    return result.join('')
+}
+
+
+//Best practice:
+function duplicateEncode(word){
+    return word
+      .toLowerCase()
+      .split('')
+      .map( function (a, i, w) {
+        return w.indexOf(a) == w.lastIndexOf(a) ? '(' : ')'
+      })
+      .join('');
+  }
+
+console.log(duplicateEncode("din"));
+console.log(duplicateEncode("Success"))
