@@ -12,11 +12,11 @@
 
 class Stack {
     constructor() {
-        this.data = {};
+        this.data = [];
     };
 
     push (record) {
-        return this.data.push(record);
+        this.data.push(record);
     };
 
     pop() {
