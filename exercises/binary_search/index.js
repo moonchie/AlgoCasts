@@ -15,6 +15,8 @@ function binarySearch(arr, elem) {
 
 }
 
+// average Big O: O(log n)
+// best Big O: O(1)
 
 // console.log(binarySearch([1,2,3,4,5,6,7,8,10,28], 28));
 console.log(binarySearch([1,2,3,4,5,6,7,8,10,28], 5));
